@@ -10,7 +10,7 @@ async function updateMe(params) {
         if (photo) data.photo = photo;
 
         // Запрос через API Client
-        const response = await this.apiClient.request("PATCH", "me", { data });
+        const response = await this.apiClient.request("PATCH", "me", { params: data });
 
         return response;
     } catch (error) {
