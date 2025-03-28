@@ -1,13 +1,13 @@
-async function getChats({ count = 50, marker = null }) {
+async function getChats(count = 50, marker = null) {
     try {
         // Параметры для запроса
-        const query = {
+        const params = {
             count,
             marker,
         };
 
         // Выполняем запрос к API
-        const response = await this.apiClient.request("GET", "chats", { query });
+        const response = await this.apiClient.request("GET", "chats", { params });
 
         return response;
     } catch (error) {

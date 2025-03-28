@@ -41,7 +41,7 @@ class MaxBot {
 
         this.apiClient = new ApiClient(token); // Инициализация клиента API
         this.bot = {}; // Инициализация объекта bot
-        this.chat = {}; // Инициализация объекта chat
+        this.chats = {}; // Инициализация объекта chat
         this.subcriptions = {}; // Инициализация объекта subscriptions
         this.upload = {}; // Инициализация объекта upload
         this.messages = {}; // Инициализация объекта messages
@@ -51,18 +51,18 @@ class MaxBot {
         this.bot.me = botMe.bind(this);
         this.bot.updateMe = botUpdateMe.bind(this);
 
-        this.chat.getChats = getChats.bind(this);
-        this.chat.getChatByLink = getChatByLink.bind(this);
-        this.chat.getChatById = getChatById.bind(this);
-        this.chat.updateChatInfo = updateChatInfo.bind(this);
-        this.chat.sendChatAction = sendChatAction.bind(this);
-        this.chat.getPinnedMessage = getPinnedMessage.bind(this);
-        this.chat.unpinMessage = unpinMessage.bind(this);
-        this.chat.getChatMembership = getChatMembership.bind(this);
-        this.chat.leaveChat = leaveChat.bind(this);
-        this.chat.getChatAdmins = getChatAdmins.bind(this);
-        this.chat.getChatMembers = getChatMembers.bind(this);
-        this.chat.pinMessage = pinMessage.bind(this);
+        this.chats.getChats = getChats.bind(this);
+        this.chats.getChatByLink = getChatByLink.bind(this);
+        this.chats.getChatById = getChatById.bind(this);
+        this.chats.updateChatInfo = updateChatInfo.bind(this);
+        this.chats.sendChatAction = sendChatAction.bind(this);
+        this.chats.getPinnedMessage = getPinnedMessage.bind(this);
+        this.chats.unpinMessage = unpinMessage.bind(this);
+        this.chats.getChatMembership = getChatMembership.bind(this);
+        this.chats.leaveChat = leaveChat.bind(this);
+        this.chats.getChatAdmins = getChatAdmins.bind(this);
+        this.chats.getChatMembers = getChatMembers.bind(this);
+        this.chats.pinMessage = pinMessage.bind(this);
 
         this.subcriptions.getSubscriptions = getSubscriptions.bind(this);
         this.subcriptions.subscribeToUpdates = subscribeToUpdates.bind(this);
