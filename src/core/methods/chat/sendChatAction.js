@@ -7,25 +7,17 @@
  * @returns {Promise<object>} - Результат выполнения запроса.
  */
 async function sendChatAction({ chatId, action }) {
-    if (!chatId || typeof chatId !== 'number') {
-      throw new Error('Некорректный chatId: требуется число.');
+    if (!chatId || typeof chatId !== "number") {
+        throw new Error("Некорректный chatId: требуется число.");
     }
-    
-    const validActions = [
-      "typing_on",
-      "sending_photo",
-      "sending_video",
-      "sending_audio",
-      "sending_file",
-      "mark_seen"
-    ];
-    
+
+    const validActions = ["typing_on", "sending_photo", "sending_video", "sending_audio", "sending_file", "mark_seen"];
+
     if (!validActions.includes(action)) {
-      throw new Error(`Некорректное действие: ${action}. Доступные действия: ${validActions.join(', ')}`);
+        throw new Error(`Некорректное действие: ${action}. Доступные действия: ${validActions.join(", ")}`);
     }
-  
-    return await this.apiClient.request('POST', `chats/${chatId}/actions`, { action });
-  }
-  
-  module.exports = sendChatAction;
-  
+
+    return await this.apiClient.request("POST", `chats/${chatId}/actions`, { params: { action } });
+}
+
+module.exports = sendChatAction;

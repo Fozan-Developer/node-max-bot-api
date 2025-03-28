@@ -16,6 +16,7 @@ const getChatMembership = require("./methods/chat/getChatMembership");
 const leaveChat = require("./methods/chat/leaveChat");
 const getChatAdmins = require("./methods/chat/getChatAdmins");
 const getChatMembers = require("./methods/chat/getChatMembers");
+const pinMessage = require("./methods/chat/pinMessage");
 
 // subscriptions
 const getSubscriptions = require("./methods/subscriptions/getSubscriptions");
@@ -61,6 +62,7 @@ class MaxBot {
         this.chat.leaveChat = leaveChat.bind(this);
         this.chat.getChatAdmins = getChatAdmins.bind(this);
         this.chat.getChatMembers = getChatMembers.bind(this);
+        this.chat.pinMessage = pinMessage.bind(this);
 
         this.subcriptions.getSubscriptions = getSubscriptions.bind(this);
         this.subcriptions.subscribeToUpdates = subscribeToUpdates.bind(this);

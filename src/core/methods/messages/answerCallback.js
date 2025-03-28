@@ -9,21 +9,23 @@
  */
 async function answerCallback(callbackId, options = {}) {
     try {
-      if (!callbackId) {
-        throw new Error("Необходимо указать callbackId.");
-      }
-  
-      const body = {};
-      if (options.message) body.message = options.message;
-      if (options.notification) body.notification = options.notification;
-  
-      const response = await this.apiClient.request("POST", "answers", body);
-  
-      return response;
+        if (!callbackId) {
+            throw new Error("Необходимо указать callbackId.");
+        }
+
+        const body = {};
+        if (options.message) body.message = options.message;
+        if (options.notification) body.notification = options.notification;
+
+        const response = await this.apiClient.request("POST", "answers", {
+            params: body,
+            query: { callback_id: callbackId },
+        });
+
+        return response;
     } catch (error) {
-      throw new Error(`Ошибка при ответе на callback: ${error.message}`);
+        throw new Error(`Ошибка при ответе на callback: ${error.message}`);
     }
-  }
-  
-  module.exports = answerCallback;
-  
+}
+
+module.exports = answerCallback;

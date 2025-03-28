@@ -12,30 +12,32 @@
  */
 async function editMessage({ messageId, text = "", attachments = null, link = null, notify = true, format = null }) {
     try {
-      if (!messageId) {
-        throw new Error("Необходимо указать messageId.");
-      }
-  
-      const payload = {
-        message_id: messageId,
-        text,
-        attachments,
-        link,
-        notify,
-        format
-      };
-  
-      const response = await this.apiClient.request("PUT", "messages", payload);
-  
-      if (!response || !response.success) {
-        throw new Error(response?.message || "Не удалось отредактировать сообщение.");
-      }
-  
-      return response; // Возвращаем результат запроса
+        if (!messageId) {
+            throw new Error("Необходимо указать messageId.");
+        }
+
+        const query = {
+            message_id: messageId,
+        };
+
+        const params = {
+            text,
+            attachments,
+            link,
+            notify,
+            format,
+        };
+
+        const response = await this.apiClient.request("PUT", "messages", { params, query });
+
+        if (!response || !response.success) {
+            throw new Error(response?.message || "Не удалось отредактировать сообщение.");
+        }
+
+        return response; // Возвращаем результат запроса
     } catch (error) {
-      throw new Error(`Ошибка при редактировании сообщения: ${error.message}`);
+        throw new Error(`Ошибка при редактировании сообщения: ${error.message}`);
     }
-  }
-  
-  module.exports = editMessage;
-  
+}
+
+module.exports = editMessage;

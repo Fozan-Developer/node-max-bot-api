@@ -10,34 +10,33 @@
  */
 async function getMessages({ chatId, messageIds = null, from = null, to = null, count = 50 }) {
     try {
-      if (!chatId) {
-        throw new Error("chatId обязателен.");
-      }
-      if (count < 1 || count > 100) {
-        throw new Error("Параметр count должен быть в диапазоне от 1 до 100.");
-      }
-      if (from && to && to >= from) {
-        throw new Error("Параметр 'to' должен быть меньше 'from'.");
-      }
-  
-      // Формируем параметры запроса
-      const params = { chat_id: chatId, count };
-      if (messageIds) params.message_ids = messageIds.join(",");
-      if (from) params.from = from;
-      if (to) params.to = to;
-  
-      // Выполняем GET-запрос к API
-      const response = await this.apiClient.request("GET", "messages", params);
-  
-      if (!response || !response.messages) {
-        throw new Error("Не удалось получить сообщения.");
-      }
-  
-      return response; // Возвращаем массив сообщений и маркер следующей страницы
+        if (!chatId) {
+            throw new Error("chatId обязателен.");
+        }
+        if (count < 1 || count > 100) {
+            throw new Error("Параметр count должен быть в диапазоне от 1 до 100.");
+        }
+        if (from && to && to >= from) {
+            throw new Error("Параметр 'to' должен быть меньше 'from'.");
+        }
+
+        // Формируем параметры запроса
+        const params = { chat_id: chatId, count };
+        if (messageIds) params.message_ids = messageIds.join(",");
+        if (from) params.from = from;
+        if (to) params.to = to;
+
+        // Выполняем GET-запрос к API
+        const response = await this.apiClient.request("GET", "messages", { params: query });
+
+        if (!response || !response.messages) {
+            throw new Error("Не удалось получить сообщения.");
+        }
+
+        return response; // Возвращаем массив сообщений и маркер следующей страницы
     } catch (error) {
-      throw new Error(`Ошибка при получении сообщений: ${error.message}`);
+        throw new Error(`Ошибка при получении сообщений: ${error.message}`);
     }
-  }
-  
-  module.exports = getMessages;
-  
+}
+
+module.exports = getMessages;

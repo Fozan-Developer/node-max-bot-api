@@ -8,28 +8,27 @@
  * @returns {Promise<object>} - Результат операции с полем success и возможным сообщением об ошибке.
  */
 async function removeChatMember({ chatId, userId, block = false }) {
-    if (!chatId || typeof chatId !== 'number') {
-      throw new Error('Некорректный chatId: требуется число.');
+    if (!chatId || typeof chatId !== "number") {
+        throw new Error("Некорректный chatId: требуется число.");
     }
-  
-    if (!userId || typeof userId !== 'number') {
-      throw new Error('Некорректный userId: требуется число.');
+
+    if (!userId || typeof userId !== "number") {
+        throw new Error("Некорректный userId: требуется число.");
     }
-  
+
     const data = {
-      user_id: userId,
-      block, // Если установлено в true, пользователь будет заблокирован
+        user_id: userId,
+        block, // Если установлено в true, пользователь будет заблокирован
     };
-  
+
     try {
-      // Запрос через API Client
-      const response = await this.apiClient.request('DELETE', `chats/${chatId}/members`, data);
-  
-      return response;
+        // Запрос через API Client
+        const response = await this.apiClient.request("DELETE", `chats/${chatId}/members`, { data });
+
+        return response;
     } catch (error) {
-      throw new Error(`Ошибка при удалении участника из чата: ${error.message}`);
+        throw new Error(`Ошибка при удалении участника из чата: ${error.message}`);
     }
-  }
-  
-  module.exports = removeChatMember;
-  
+}
+
+module.exports = removeChatMember;

@@ -7,27 +7,26 @@
  * @returns {Promise<object>} - Результат операции с полем success и возможным сообщением об ошибке.
  */
 async function addChatMembers({ chatId, userIds }) {
-    if (!chatId || typeof chatId !== 'number') {
-      throw new Error('Некорректный chatId: требуется число.');
+    if (!chatId || typeof chatId !== "number") {
+        throw new Error("Некорректный chatId: требуется число.");
     }
-  
+
     if (!Array.isArray(userIds) || userIds.length === 0) {
-      throw new Error('Некорректный список userIds: требуется массив с хотя бы одним элементом.');
+        throw new Error("Некорректный список userIds: требуется массив с хотя бы одним элементом.");
     }
-  
+
     const data = {
-      user_ids: userIds,
+        user_ids: userIds,
     };
-  
+
     try {
-      // Запрос через API Client
-      const response = await this.apiClient.request('POST', `chats/${chatId}/members`, data);
-  
-      return response;
+        // Запрос через API Client
+        const response = await this.apiClient.request("POST", `chats/${chatId}/members`, { data });
+
+        return response;
     } catch (error) {
-      throw new Error(`Ошибка при добавлении участников в чат: ${error.message}`);
+        throw new Error(`Ошибка при добавлении участников в чат: ${error.message}`);
     }
-  }
-  
-  module.exports = addChatMembers;
-  
+}
+
+module.exports = addChatMembers;

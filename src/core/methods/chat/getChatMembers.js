@@ -9,26 +9,25 @@
  * @returns {Promise<object>} - Список участников чата с информацией о времени последней активности.
  */
 async function getChatMembers({ chatId, userIds = [], marker, count = 20 }) {
-    if (!chatId || typeof chatId !== 'number') {
-      throw new Error('Некорректный chatId: требуется число.');
+    if (!chatId || typeof chatId !== "number") {
+        throw new Error("Некорректный chatId: требуется число.");
     }
-  
+
     const params = {
-      chatId,
-      user_ids: userIds,
-      marker,
-      count
+        chatId,
+        user_ids: userIds,
+        marker,
+        count,
     };
-  
+
     try {
-      // Запрос через API Client
-      const response = await this.apiClient.request('GET', `chats/${chatId}/members`, params);
-  
-      return response;
+        // Запрос через API Client
+        const response = await this.apiClient.request("GET", `chats/${chatId}/members`, { params });
+
+        return response;
     } catch (error) {
-      throw new Error(`Ошибка при получении участников чата: ${error.message}`);
+        throw new Error(`Ошибка при получении участников чата: ${error.message}`);
     }
-  }
-  
-  module.exports = getChatMembers;
-  
+}
+
+module.exports = getChatMembers;
