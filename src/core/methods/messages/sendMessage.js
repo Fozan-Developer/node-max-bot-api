@@ -41,7 +41,7 @@ async function sendMessage({
             disable_link_preview: disableLinkPreview,
         };
 
-        const response = await this.apiClient.request("POST", "messages", { payload, query });
+        const response = await this.apiClient.request("POST", "messages", { params: payload, query });
 
         if (!response || !response.message) {
             throw new Error("Не удалось отправить сообщение.");

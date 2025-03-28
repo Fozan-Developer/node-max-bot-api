@@ -18,16 +18,22 @@ class PollingManager {
 
             if (response && response.updates && response.updates.length > 0) {
                 response.updates.forEach(update => {
-                    if (update.message) {
-                        // Генерация события для 'message'
-                        this.trigger("message", update.message);
+                    if (update.update_type === "message_created" && update.message && update.message.body) {
+                        this.trigger("message", update.message); // Генерируем событие
+                    }
+
+                    if (update.update_type === "message_removed") {
+                        this.trigger("message_removed", update); // Генерируем событие
+                    }
+
+                    if (update.update_type === "message_edited") {
+                        this.trigger("message_edited", update); // Генерируем событие
                     }
                 });
 
                 if (response.marker) {
                     this.marker = response.marker;
                 }
-            } else {
             }
         } catch (error) {
             console.error("Ошибка при получении обновлений:", error.message);
