@@ -18,7 +18,7 @@ const bot = new MaxBot('YOUR_BOT_TOKEN');
 
 bot.on('message', (msg) => {
   console.log('Получено сообщение:', msg);
-  bot.sendMessage(msg.recipient.chat_id, 'Привет!');
+  bot.message.sendMessage({chatId: msg.recipient.chat_id, text: 'Привет!'});
 });
 
 bot.startPolling();

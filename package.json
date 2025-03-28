@@ -1,29 +1,29 @@
 {
-  "name": "node-max-bot-api",
-  "version": "1.0.0",
-  "description": "",
-  "main": "src/MaxBot.js",
-  "scripts": {
-    "test": "node test.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Fozan-Developer/node-max-bot-api.git"
-  },
-  "keywords": [
-    "max",
-    "node",
-    "js",
-    "botapi",
-    "maxbotapi"
-  ],
-  "author": "Mr_Fozan",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Fozan-Developer/node-max-bot-api/issues"
-  },
-  "homepage": "https://github.com/Fozan-Developer/node-max-bot-api#readme",
-  "dependencies": {
-    "axios": "^1.8.4"
-  }
+    "name": "node-max-bot-api",
+    "version": "1.0.1",
+    "description": "",
+    "main": "src/MaxBot.js",
+    "scripts": {
+        "test": "node test.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Fozan-Developer/node-max-bot-api.git"
+    },
+    "keywords": [
+        "max",
+        "node",
+        "js",
+        "botapi",
+        "maxbotapi"
+    ],
+    "author": "Mr_Fozan",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Fozan-Developer/node-max-bot-api/issues"
+    },
+    "homepage": "https://github.com/Fozan-Developer/node-max-bot-api#readme",
+    "dependencies": {
+        "axios": "^1.8.4"
+    }
 }
