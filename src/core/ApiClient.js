@@ -9,7 +9,7 @@ class ApiClient {
         this.apiUrl = "https://botapi.max.ru"; // Обновленный URL для MAX
     }
 
-    async request(method, endpoint, { params = {}, query = {} }) {
+    async request(method, endpoint, { params = {}, query = {} } = {}) {
         try {
             // Фильтруем параметры в query, чтобы исключить undefined
             const filteredQuery = Object.fromEntries(
