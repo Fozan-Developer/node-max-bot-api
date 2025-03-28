@@ -27,6 +27,6 @@ bot.startPolling();
 ## Источники
 - **npmjs**: [Ссылка на npm](https://www.npmjs.com/package/node-max-bot-api)
 - **github**: [Ссылка на git](https://github.com/Fozan-Developer/node-max-bot-api)
-- **Полная документация**: [Перейти](https://fozan.gitbook.io/node-max-bot-api/)
-- **Чат**: [Перейти](https://max.ru/join/oBGOuh2WqlAV6Ky0k4jHfbf8Dn6HZ0cCzTe4442jSOE)
+- **документация**: [Перейти](https://fozan.gitbook.io/node-max-bot-api/)
+- **чат**: [Перейти](https://max.ru/join/oBGOuh2WqlAV6Ky0k4jHfbf8Dn6HZ0cCzTe4442jSOE)
 
