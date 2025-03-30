@@ -1,6 +1,6 @@
 {
     "name": "node-max-bot-api",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "",
     "main": "src/MaxBot.js",
     "scripts": {

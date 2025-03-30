@@ -21,7 +21,7 @@ async function addChatMembers({ chatId, userIds }) {
 
     try {
         // Запрос через API Client
-        const response = await this.apiClient.request("POST", `chats/${chatId}/members`, { data });
+        const response = await this.apiClient.request("POST", `chats/${chatId}/members`, { params: data });
 
         return response;
     } catch (error) {

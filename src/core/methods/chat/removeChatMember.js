@@ -23,7 +23,7 @@ async function removeChatMember({ chatId, userId, block = false }) {
 
     try {
         // Запрос через API Client
-        const response = await this.apiClient.request("DELETE", `chats/${chatId}/members`, { data });
+        const response = await this.apiClient.request("DELETE", `chats/${chatId}/members`, { query: data });
 
         return response;
     } catch (error) {

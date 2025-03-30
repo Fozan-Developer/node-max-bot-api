@@ -27,7 +27,7 @@ async function getMessages({ chatId, messageIds = null, from = null, to = null, 
         if (to) params.to = to;
 
         // Выполняем GET-запрос к API
-        const response = await this.apiClient.request("GET", "messages", { params: query });
+        const response = await this.apiClient.request("GET", "messages", { query: params });
 
         if (!response || !response.messages) {
             throw new Error("Не удалось получить сообщения.");
