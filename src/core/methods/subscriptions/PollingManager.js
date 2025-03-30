@@ -29,6 +29,11 @@ class PollingManager {
                     if (update.update_type === "message_edited") {
                         this.trigger("message_edited", update); // Генерируем событие
                     }
+
+                    if (update.update_type === "message_callback") {
+                        delete update.update_type;
+                        this.trigger("callback", update);
+                    }
                 });
 
                 if (response.marker) {
