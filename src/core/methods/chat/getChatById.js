@@ -6,12 +6,11 @@
  * @returns {Promise<object>} - Информация о чате.
  */
 async function getChatById(chatId) {
-    if (!chatId || typeof chatId !== 'number') {
-      throw new Error('Некорректный chatId: требуется число.');
+    if (!chatId || typeof chatId !== "number") {
+        throw new Error("Некорректный chatId: требуется число.");
     }
-  
-    return await this.apiClient.request('GET', `chats/${chatId}`);
-  }
-  
-  module.exports = getChatById;
-  
+
+    return await this.apiClient.request("GET", `chats/${chatId}`);
+}
+
+module.exports = getChatById;

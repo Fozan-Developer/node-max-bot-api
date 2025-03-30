@@ -39,9 +39,13 @@ class ApiClient {
             return response.data;
         } catch (error) {
             // Извлекаем подробности ошибки
-            const errorMessage = error.response?.data ? JSON.stringify(error.response.data, null, 2) : error.message;
+            const errorMessage = error.response?.data || {}; // Если data есть, берем его, иначе пустой объект
 
-            throw new Error(`Ошибка запроса: ${errorMessage}`);
+            return {
+                error: true,
+                ...errorMessage, // Разворачиваем объект внутрь результата
+            };
+            // throw new Error(`Ошибка запроса: ${errorMessage}`);
         }
     }
 }

@@ -37,6 +37,9 @@ const getMessage = require("./methods/messages/getMessage");
 const answerCallback = require("./methods/messages/answerCallback");
 const getVideoDetails = require("./methods/messages/getVideoDetails");
 
+// utils
+const utilsGetChatStatus = require("../utils/getChatStatus");
+
 class MaxBot {
     constructor({ token, options }) {
         if (!token) {
@@ -49,6 +52,7 @@ class MaxBot {
         this.subcriptions = {}; // Инициализация объекта subscriptions
         this.upload = {}; // Инициализация объекта upload
         this.messages = {}; // Инициализация объекта messages
+        this.utils = {};
         this.events = {}; // Хранилище для событий
         this.options = options; // Инициализация опций
 
@@ -83,6 +87,9 @@ class MaxBot {
         this.messages.getMessage = getMessage.bind(this);
         this.messages.answerCallback = answerCallback.bind(this);
         this.messages.getVideoDetails = getVideoDetails.bind(this);
+
+        // utils
+        this.utils.getChatStatus = utilsGetChatStatus.bind(this);
 
         // Инициализация PollingManager
         this.pollingManager = new PollingManager(this.apiClient);
