@@ -38,7 +38,7 @@ const answerCallback = require("./methods/messages/answerCallback");
 const getVideoDetails = require("./methods/messages/getVideoDetails");
 
 class MaxBot {
-    constructor({ token }) {
+    constructor({ token, options }) {
         if (!token) {
             throw new Error("Токен обязателен для работы бота");
         }
@@ -50,6 +50,7 @@ class MaxBot {
         this.upload = {}; // Инициализация объекта upload
         this.messages = {}; // Инициализация объекта messages
         this.events = {}; // Хранилище для событий
+        this.options = options; // Инициализация опций
 
         // Инициализация методов
         this.bot.me = botMe.bind(this);

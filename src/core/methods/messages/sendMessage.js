@@ -20,19 +20,30 @@ async function sendMessage({
     attachments = [],
     link = null,
     notify = true,
-    format = null,
+    format,
 }) {
     try {
         if (!userId && !chatId) {
             throw new Error("Необходимо указать userId или chatId.");
         }
 
+        const typeFormat = () => {
+            if (format) {
+                return format;
+            }
+            if (this.options.format) {
+                return this.options.format;
+            }
+
+            return undefined;
+        };
+
         const payload = {
             text,
             attachments: attachments.length ? attachments : undefined,
             link: link || undefined,
             notify,
-            format: format || undefined,
+            format: typeFormat(),
         };
 
         const query = {
