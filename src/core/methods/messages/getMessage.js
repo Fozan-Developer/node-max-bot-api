@@ -10,7 +10,7 @@ async function getMessage(messageId) {
             throw new Error("Необходимо указать messageId.");
         }
 
-        const response = await this.apiClient.request("GET", `messages/${messageId}`, { query: { messageId } });
+        const response = await this.apiClient.request("GET", `messages/${messageId}`);
 
         if (!response) {
             throw new Error("Сообщение не найдено.");
