@@ -36,6 +36,7 @@ const deleteMessage = require("./methods/messages/deleteMessage");
 const getMessage = require("./methods/messages/getMessage");
 const answerCallback = require("./methods/messages/answerCallback");
 const getVideoDetails = require("./methods/messages/getVideoDetails");
+const sendMessageReply = require("./methods/messages/sendMessageReply");
 
 // utils
 const utilsGetChatStatus = require("../utils/getChatStatus");
@@ -87,6 +88,7 @@ class MaxBot {
         this.messages.getMessage = getMessage.bind(this);
         this.messages.answerCallback = answerCallback.bind(this);
         this.messages.getVideoDetails = getVideoDetails.bind(this);
+        this.messages.sendMessageReply = sendMessageReply.bind(this);
 
         // utils
         this.utils.getChatStatus = utilsGetChatStatus.bind(this);

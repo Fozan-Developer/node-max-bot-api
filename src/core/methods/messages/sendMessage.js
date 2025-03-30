@@ -26,13 +26,14 @@ async function sendMessage({
         if (!userId && !chatId) {
             throw new Error("Необходимо указать userId или chatId.");
         }
-
         const typeFormat = () => {
+            if (format === undefined) {
+                if (this.options.format) {
+                    return this.options.format;
+                }
+            }
             if (format) {
                 return format;
-            }
-            if (this.options.format) {
-                return this.options.format;
             }
 
             return undefined;
