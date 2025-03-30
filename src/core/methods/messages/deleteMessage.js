@@ -10,7 +10,7 @@ async function deleteMessage(messageId) {
             throw new Error("Необходимо указать messageId.");
         }
 
-        const response = await this.apiClient.request("DELETE", "messages", { params: { message_id: messageId } });
+        const response = await this.apiClient.request("DELETE", "messages", { query: { message_id: messageId } });
 
         if (!response || !response.success) {
             throw new Error(response?.message || "Не удалось удалить сообщение.");
